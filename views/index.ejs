@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cocktail Recipes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container col-xxl-8 px-4 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+          <div class="col-10 col-sm-8 col-lg-6">
+            <img src= <%= drink.strDrinkThumb %> class="d-block mx-lg-auto img-fluid" alt="Cocktail Image" width="700" height="500" loading="lazy">
+          </div>
+          <div class="col-lg-6">
+            <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3"> <%= drink.strDrink %> </h1>
+            <h4> Ingredients: </h4>
+            <p>
+                <ul>
+                    <% let i = 1 %>
+                    <% while(drink[`strIngredient${i}`] !== null) { %>
+                        <li>
+                            <%= drink[`strMeasure${i}`] %> <%= drink[`strIngredient${i}`] %>
+                        </li>
+                    <% i++ } %>
+                </ul>
+            </p>
+            <h4> Recipe: </h4>
+            <p> <%= drink.strInstructions %> </p>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                <button type="button" class="btn btn-primary btn-lg px-4 me-md-2" onclick="window.location.href='/'">Generate new Recipe!</button>
+            </div>  
+          </div>
+        </div>
+      </div>
+
+</body>
+</html>
